@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Admin"))
+    {
+
+
+        <div class="card" style="width: 18rem; position:absolute;top:170px">
+            <img src="~/content/br.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Employees</h5>
+                <p class="card-text">Here is all information about Employees. You can create, update and delete employee from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Employees" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;left:600px;top:170px;">
+            <img src="~/content/table2.png"
+                 class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Employee Position</h5>
+                <p class="card-text">Here is all information about Employees positions. You can create, update and delete employees positions from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="EmployeePositions" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+
+
+
+
+    }
+
+    @if (User.IsInRole("Coach"))
+    {
+        <div class="card" style="width: 18rem;position:absolute;top:170px">
+            <img src="~/content/table3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Players</h5>
+                <p class="card-text">Here is all information about Players. You can create, update and delete player from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Players" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;left:600px;top:170px;">
+            <img src="~/content/table 4.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Groups</h5>
+                <p class="card-text">Here is all information about Groups. You can create, update and delete group from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Groups" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;left:1000px;top:170px;">
+            <img src="~/content/table5.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Trainings</h5>
+                <p class="card-text">Here is all information about Trainings. You can create, update and delete training from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Trainings" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;top:600px; left:900px;">
+            <img src="~/content/table7.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Opponents</h5>
+                <p class="card-text">Here is all information about Opponents. You can create, update and delete opponent from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Opponents" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem;position:absolute;left:400px;top:600px;">
+            <img src="~/content/table6.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Training Types</h5>
+                <p class="card-text">Here is all information about Training types. You can create, update and delete it from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="TrainingTypes" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div style="width:200px;height:100px;position:absolute;top:900px"></div>
+
+    }
+
+    @if (User.IsInRole("AssistantCoach"))
+    {
+
+        <div class="card" style="width: 18rem; position:absolute;top:170px;">
+            <img src="~/content/table8.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Competition</h5>
+                <p class="card-text">Here is all information about Competitions. You can create, update and delete competitions from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Competitions" asp-action="Index">Check</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;position:absolute;left:600px;top:170px;">
+            <img src="~/content/table9.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Competition Types</h5>
+                <p class="card-text">Here is all information about Competition types. You can create, update and delete it from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="CompetitionTypes" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;left:1000px;top:170px;">
+            <img src="~/content/table10.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Seasons</h5>
+                <p class="card-text">Here is all information about Season. You can create, update and delete season from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Seasons" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;position:absolute;left:600px;top:600px;">
+            <img src="~/content/table11.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Stadiums</h5>
+                <p class="card-text">Here is all information about Stadiums. You can create, update and delete stadium from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="Stadium" asp-action="Index">Check</a>
+            </div>
+        </div>
+
+        <div style="width:200px;height:100px;position:absolute;top:900px"></div>
+
+
+        // <a class="nav-link text-dark" asp-area="" asp-controller="Trainings" asp-action="Index">Training</a>
+
+
+    }
+
+    @if (User.IsInRole("Economist"))
+    {
+        <div class="card" style="width: 18rem; position:absolute;top:170px;">
+            <img src="~/content/table12.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Membership Fee</h5>
+                <p class="card-text">Here is all information about Membership fee. You can create, update and delete it from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="MembershipFees" asp-action="Index">Check</a>
+            </div>
+        </div> 
+        
+        <div class="card" style="width: 18rem;position:absolute;left:600px;top:170px;">
+            <img src="~/content/tabl.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Player Membership Fee</h5>
+                <p class="card-text">Here is all information about Player membership fee. You can create, update and delete it from the table</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="PlayerMembershipFees" asp-action="Index">Check</a>
+            </div>
+        </div>
+       
+    }
+
+    @*<div class="dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Informative
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>@Html.ActionLink("Competition Type", "Index", "CompetitionTypes")</li>
+                <li>@Html.ActionLink("Season", "Index", "Seasons")</li>
+                <li>@Html.ActionLink("Opponent", "Index", "Opponents")</li>
+                <li>@Html.ActionLink("Training Type", "Index", "TrainingTypes")</li>
+                <li>@Html.ActionLink("Stadium", "Index", "Stadium")</li>
+                <li>@Html.ActionLink("Employee Position", "Index", "EmployeePositions")</li>
+                <li>@Html.ActionLink("Membership Fee", "Index", "MembershipFees")</li>
+            </ul>
+        </div>*@
+
+
+
+
+    <div style="width:200px;height:100px;position:absolute;top:800px"></div>
+}

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FS20.Models.PlayerMembershipFee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/employee.css" />
+</head>
+<h1>Player Membership Fee</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table table table-striped table-bordered" style="background-color:whitesmoke;opacity:0.9">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Month)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipFee)
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Month)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MembershipFee.Name)
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.PlayerMembershipFeeID">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PlayerMembershipFeeID">Details</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PlayerMembershipFeeID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

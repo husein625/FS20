@@ -1,0 +1,57 @@
+﻿@model FS20.Models.PlayerMembershipFee
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/player.css" />
+</head>
+<h1>Create</h1>
+
+<h4>PlayerMembershipFee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Year" class="form-control" placeholder="Year" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Month" class="form-control" placeholder="Month" />
+                <span asp-validation-for="Month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Amount" class="form-control" placeholder="Amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Date" class="form-control" placeholder="Date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Player</label>
+                <select asp-for="PlayerID" class="form-control" asp-items="ViewBag.PlayerID"></select>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Membership Fee</label>
+                <select asp-for="MembershipFeeID" class="form-control" asp-items="ViewBag.MembershipFeeID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
+</div>
+
+<div style="width:200px;height:100px;position:absolute;top:700px"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

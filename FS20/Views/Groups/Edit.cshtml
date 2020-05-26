@@ -1,0 +1,67 @@
+﻿@model FS20.Models.Group
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <head>
+        <link rel="stylesheet" href="~/css/group.css" />
+    </head>
+<h1>Edit</h1>
+
+<h4 style="color:white">Group</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GroupID" />
+            <div class="form-group">
+                <input asp-for="Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Age" class="form-control" placeholder="Age" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="NumberOfPlayers" class="form-control" placeholder="Number of players" />
+                <span asp-validation-for="NumberOfPlayers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="DateFrom" class="form-control" placeholder="Date from" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="DateTo" class="form-control" placeholder="Date to" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachID" class="control-label" style="color:white"></label>
+                <select asp-for="CoachID" class="form-control" asp-items="ViewBag.CoachID"></select>
+                <span asp-validation-for="CoachID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssistantCoach1ID" class="control-label" style="color:white"></label>
+                <select asp-for="AssistantCoach1ID" class="form-control" asp-items="ViewBag.AssistantCoach1ID"></select>
+                <span asp-validation-for="AssistantCoach1ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssistantCoach2ID" class="control-label" style="color:white"></label>
+                <select asp-for="AssistantCoach2ID" class="form-control" asp-items="ViewBag.AssistantCoach2ID"></select>
+                <span asp-validation-for="AssistantCoach2ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-success" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

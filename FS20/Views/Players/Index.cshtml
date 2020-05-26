@@ -1,0 +1,137 @@
+﻿@model IEnumerable<FS20.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <head>
+        <link rel="stylesheet" href="~/css/player.css" />
+    </head>
+<h1>Players</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table table table-striped table-bordered" style="position:absolute;left:50px;width:600px;font-size:13px;background-color:whitesmoke;opacity:0.9">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniqueId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherTelephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherTelephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+           
+            <th>
+                Membership Fee
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UniqueId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherTelephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherTelephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group.Name)
+                </td>
+              
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="PlayerMembershipFees" asp-action="Index">Check</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.PlayerId">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PlayerId">Details</a> 
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PlayerId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

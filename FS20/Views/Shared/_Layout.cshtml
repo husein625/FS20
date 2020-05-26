@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FS20</title>
+    <link rel="shortcut icon" href="~/content/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/content/logo.png" style="width:80px;height:80px;position:absolute;left:120px;top:30px;" /></a>
+                        <partial name="_LoginPartial" />
+
+
+
+
+                    }
+
+                    @if (User.IsInRole("Coach"))
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/content/logo.png" style="width:80px;height:80px;position:absolute;left:120px;top:30px;" /></a>
+                        <partial name="_LoginPartial" />
+
+                    }
+
+                    @if (User.IsInRole("AssistantCoach"))
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/content/logo.png" style="width:80px;height:80px;position:absolute;left:120px;top:30px;" /></a>
+                        <partial name="_LoginPartial" />
+
+                    }
+
+                    @if (User.IsInRole("Economist"))
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/content/logo.png" style="width:80px;height:80px;position:absolute;left:120px;top:30px;" /></a>
+                        <partial name="_LoginPartial" />
+
+                    }
+                }
+
+
+
+
+
+
+
+            </div>
+</nav>
+    </header>
+    <div class="container">
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="">
+        @*<div class="container">
+            &copy; 2020 - FS20 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>*@
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

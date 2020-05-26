@@ -1,0 +1,89 @@
+﻿@model FS20.Models.Player
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/player.css" />
+</head>
+<h1>Create</h1>
+
+<h4>Player</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="UniqueId" class="form-control" placeholder="Unique ID" />
+                <span asp-validation-for="UniqueId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="date" asp-for="BirthDate" class="form-control" placeholder="Birth Date" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="MotherName" class="form-control" placeholder="Mother Name" />
+                <span asp-validation-for="MotherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="MotherTelephone" class="form-control" placeholder="Mother Telephone" />
+                <span asp-validation-for="MotherTelephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="MotherEmail" class="form-control" placeholder="Mother Telephone" />
+                <span asp-validation-for="MotherEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="FatherName" class="form-control" placeholder="Father Name" />
+                <span asp-validation-for="FatherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="FatherTelephone" class="form-control" placeholder="Father Telephone" />
+                <span asp-validation-for="FatherTelephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="FatherEmail" class="form-control" placeholder="Father Email" />
+                <span asp-validation-for="FatherEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="RegistrationNumber" class="form-control" placeholder="Registration Number" />
+                <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="DateFrom" class="form-control" placeholder="Date From" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="DateTo" class="form-control" placeholder="Date To" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Group</label>
+                <select asp-for="GroupID" class="form-control" asp-items="ViewBag.GroupID"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
+</div>
+<div style="width:200px;height:100px;position:absolute;top:1100px"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

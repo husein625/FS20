@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FS20.Models.Training>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/employee.css" />
+</head>
+
+<h1>Trainings</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table table table-striped table-bordered" style="background-color:whitesmoke;opacity:0.9">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrainingType)
+            </th>
+            <th>
+                Training Presence
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrainingType.Name)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="TrainingsPresences" asp-action="Index">Check</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.TrainingID">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.TrainingID">Details</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TrainingID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
